@@ -12,7 +12,7 @@ cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 
-def excel(source, count=-1):
+def excel(source, ignore_blank_row=False, count=-1):
     wb = load_workbook(source)
     sheets = wb.sheetnames
     json_obj = []
@@ -29,6 +29,10 @@ def excel(source, count=-1):
                     row_list.append(cell.value)
             except StopIteration:
                 break
+            if ignore_blank_row is True:
+                check = set(row_list)
+                if len(check) == 1 and None in check:
+                    continue
             limit -= 1
             current.append(row_list)
         json_obj.append({sheet: current})
@@ -36,15 +40,15 @@ def excel(source, count=-1):
     return json_obj
 
 
-@ app.route('/', methods=['GET', 'POST'])
-@ cross_origin
+@app.route('/', methods=['GET', 'POST'])
+@cross_origin()
 def hello():
     if request.method == 'POST':
         print(request.files)
         source = request.files['source']
-        result = excel(source, 5)
+        result = excel(source, False, 5)
         output = json.dumps(result, indent=4)
-        print(output)
+        # print(output)
         return result
 
     return 'Hello there.'
