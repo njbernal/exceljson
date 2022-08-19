@@ -3,4 +3,4 @@ WORKDIR /app
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 COPY . .
-CMD ["waitress-serve"  , "--listen=*:8888", "server:app"]
+CMD ["waitress-serve"  , "--listen=*:8080", "server:app"]
