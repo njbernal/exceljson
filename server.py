@@ -71,6 +71,8 @@ def exceljson():
     if request.method == 'POST':
         ignore = request.form.get('ignore_blank_rows')
         limit = request.form.get('limit')
+        if len(request.files) == 0:
+            return 'File error. No file received.'
         source = request.files['source']
         if source.read() == b'':
             return 'No file provided. Exiting.'
