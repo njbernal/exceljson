@@ -1,2 +1,4 @@
 .gitignore
 ExcelJSON.code-workspace
+commands.txt
+__pycache__

@@ -1,1 +1,5 @@
 ./venv
+ExcelJSON.code-workspace
+.gitignore
+commands.txt
+__pycache__
