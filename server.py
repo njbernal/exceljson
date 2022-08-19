@@ -13,6 +13,7 @@ def excel(source, ignore_blank_row = False, count = -1):
     Parse a XLSX file.
     :param ignore_blank_row: Optional. 1, True or 'true' will ignore any blank rows in the file.
     :param count: Optional. The limit of how many rows to parse. If none provided, all rows will be parsed.
+    :return: JSON representation of the entire file.
     """
     
     # A few validation checks
