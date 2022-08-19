@@ -1,5 +1,5 @@
 FROM python:3.10-buster
-WORKDIR /ExcelJSON
+WORKDIR /
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 COPY . .

@@ -44,11 +44,12 @@ def excel(source, ignore_blank_row=False, count=-1):
 @cross_origin()
 def hello():
     if request.method == 'POST':
-        print(request.files)
+        print(request.form['ignore_blank_rows'])
+        ignore = request.form['ignore_blank_rows']
+
         source = request.files['source']
         result = excel(source, False, 5)
-        output = json.dumps(result, indent=4)
-        # print(output)
+        # output = json.dumps(result, indent=4)
         return result
 
     return 'Hello there.'
@@ -56,4 +57,5 @@ def hello():
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port, debug=True)
+    print(port)
+    app.run(debug=True)
