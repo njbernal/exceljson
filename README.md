@@ -9,7 +9,7 @@ The server does not store any data, it simple receives the FileObject from a **P
 
 # Motivation
 
-I'm sure this already exists out there, but as I do a *lot* of Excel to JSON conversions locally I decided to build my own. It is also an exercise in Python, and an item to add to my portfolio.
+I'm sure this already exists out there, but as I do a *lot* of Excel to JSON conversions locally I decided to build my own. Besides, it seemed like a good learning opportunity.
 
 <br />
 
